@@ -13,7 +13,7 @@ public:
     int GetDataVal() const;
     void SetNextNodePtr(IntNode *nextNodePtr);
     void PrintNodeData();
-//    ~IntNode();
+    ~IntNode();
 
 private:
     int dataVal;

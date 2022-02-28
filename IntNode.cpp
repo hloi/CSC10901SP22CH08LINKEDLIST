@@ -31,6 +31,7 @@ int IntNode::GetDataVal() const {
     return dataVal;
 }
 
-//IntNode::~IntNode() {
-//    delete this->nextNodePtr;
-//}
+IntNode::~IntNode() {
+    cout << "Node destructor" << endl;
+    delete this->nextNodePtr;
+}

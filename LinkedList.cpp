@@ -39,13 +39,14 @@ IntNode *LinkedList::getTail() const {
 }
 
 LinkedList::~LinkedList() {
-    IntNode* tmp = head;
-    while (tmp != nullptr) {
-        cout << "Destructor" << endl;
-        IntNode* next = tmp->GetNext();
-        delete tmp;
-        tmp = next;
-    }
+//    IntNode* tmp = head;
+//    while (tmp != nullptr) {
+//        cout << "Destructor" << endl;
+//        IntNode* next = tmp->GetNext();
+//        delete tmp;
+//        tmp = next;
+//    }
+    delete head;
 }
 
 
