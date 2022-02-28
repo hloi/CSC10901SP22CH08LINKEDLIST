@@ -29,7 +29,7 @@ public:
     //All tests should start with the word 'test' followed by
     //the name of the function being tested.
 
-    void testIntNode() {
+    void testPush_Front() {
         //Use TS_ASSERT_EQUALS(Result, ExpResult) to test your functions. 
         LinkedList list1;
         IntNode* headObj = new IntNode(1); // Create IntNode objects
@@ -42,13 +42,74 @@ public:
         list1.push_front(nodeObj2);
 
         IntNode* head = list1.getHead();
-        TS_ASSERT_EQUALS(head->GetDataVal(), nodeObj2->GetDataVal());
+//        TS_ASSERT_EQUALS(head->GetDataVal(), nodeObj2->GetDataVal());
         IntNode* tail = list1.getTail();
-        TS_ASSERT_EQUALS(tail->GetDataVal(), headObj->GetDataVal());
+//        TS_ASSERT_EQUALS(tail->GetDataVal(), headObj->GetDataVal());
         IntNode* mid = list1.getHead()->GetNext();
-        TS_ASSERT_EQUALS(mid->GetDataVal(), nodeObj1->GetDataVal());
-        cout << endl;
+//        TS_ASSERT_EQUALS(mid->GetDataVal(), nodeObj1->GetDataVal());
+//        cout << endl;
+        TS_ASSERT(head == nodeObj2);
+        TS_ASSERT(tail == headObj);
+        TS_ASSERT(mid == nodeObj1);
     }
+
+    void testPush_Back() {
+        LinkedList list1;
+        IntNode* headObj = new IntNode(1); // Create IntNode objects
+        IntNode* nodeObj1 = new IntNode(2);
+        IntNode* nodeObj2 = new IntNode(3);
+        IntNode* nodeObj3 = new IntNode(4);
+
+        list1.push_back(headObj);
+        list1.push_back(nodeObj1);
+        list1.push_back(nodeObj2);
+
+        IntNode* head = list1.getHead();
+//        TS_ASSERT_EQUALS(head->GetDataVal(), nodeObj2->GetDataVal());
+        IntNode* tail = list1.getTail();
+//        TS_ASSERT_EQUALS(tail->GetDataVal(), headObj->GetDataVal());
+        IntNode* mid = list1.getHead()->GetNext();
+//        TS_ASSERT_EQUALS(mid->GetDataVal(), nodeObj1->GetDataVal());
+//        cout << endl;
+        TS_ASSERT(head == headObj);
+        TS_ASSERT(tail == nodeObj2);
+        TS_ASSERT(mid == nodeObj1);
+    }
+    void testInsertAfter() {
+        LinkedList list1;
+        IntNode* headObj = new IntNode(1); // Create IntNode objects
+        IntNode* nodeObj1 = new IntNode(2);
+        IntNode* nodeObj2 = new IntNode(3);
+        IntNode* nodeObj3 = new IntNode(4);
+
+        list1.push_back(headObj);
+        list1.push_back(nodeObj1);
+        list1.push_back(nodeObj2);
+
+        list1.insertAfter(nodeObj3,1);
+
+        IntNode* p = list1.getHead()->GetNext()->GetNext();
+        TS_ASSERT(p == nodeObj3);
+
+        IntNode* head = list1.getHead();
+//        TS_ASSERT_EQUALS(head->GetDataVal(), nodeObj2->GetDataVal());
+        IntNode* tail = list1.getTail();
+//        TS_ASSERT_EQUALS(tail->GetDataVal(), headObj->GetDataVal());
+        IntNode* mid = list1.getHead()->GetNext();
+//        TS_ASSERT_EQUALS(mid->GetDataVal(), nodeObj1->GetDataVal());
+//        cout << endl;
+        TS_ASSERT(head == headObj);
+        TS_ASSERT(tail == nodeObj2);
+//        TS_ASSERT(mid == nodeObj1);
+        
+
+
+    }
+
+
 };
+
+
+
 #endif /* NEWCXXTEST_H */
 

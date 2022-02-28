@@ -35,3 +35,13 @@ IntNode::~IntNode() {
     cout << "Node destructor" << endl;
     delete this->nextNodePtr;
 }
+
+bool IntNode::operator==(const IntNode* other) {
+    return this->dataVal == other->dataVal;
+}
+
+void IntNode::insertAfter(IntNode *node) {
+    IntNode* tmp = this->nextNodePtr;
+    SetNextNodePtr(node);
+    node->SetNextNodePtr(tmp);
+}

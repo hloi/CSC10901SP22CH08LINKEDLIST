@@ -12,8 +12,10 @@ public:
     IntNode* GetNext();
     int GetDataVal() const;
     void SetNextNodePtr(IntNode *nextNodePtr);
+    void insertAfter(IntNode* node);
     void PrintNodeData();
     ~IntNode();
+    bool operator==(const IntNode* other);
 
 private:
     int dataVal;

@@ -12,10 +12,11 @@ public:
     LinkedList();
     void push_front(IntNode* node);
     void push_back(IntNode* node);
-    void insertAfter(IntNode* node);
+
     void print();
     IntNode *getHead() const;
     IntNode *getTail() const;
+    void insertAfter(IntNode* node, int pos);
     ~LinkedList();
 
 private:

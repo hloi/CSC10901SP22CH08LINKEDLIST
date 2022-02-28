@@ -25,6 +25,17 @@ void LinkedList::push_front(IntNode *node) {
     }
 }
 
+void LinkedList::push_back(IntNode *node) {
+    if (head == nullptr) {
+        head = node;
+        tail = node;
+    }
+    else {
+        tail->SetNextNodePtr(node);
+        tail = node;
+    }
+}
+
 LinkedList::LinkedList() {
     head = nullptr;
     tail = nullptr;
@@ -47,6 +58,19 @@ LinkedList::~LinkedList() {
 //        tmp = next;
 //    }
     delete head;
+}
+
+void LinkedList::insertAfter(IntNode *node, int pos) {
+    IntNode* tmp = head;
+    int curPos = 0;
+
+    while (tmp != nullptr and curPos < pos) {
+        curPos++;
+        tmp = tmp->GetNext();
+    }
+    if (curPos == pos) {
+        tmp->insertAfter(node);
+    }
 }
 
 
