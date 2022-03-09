@@ -22,4 +22,4 @@ if(CXXTEST_FOUND)
 
 endif()
 
-add_executable(CSC10901SP22CH08LINKEDLIST main.cpp IntNode.cpp IntNode.h LinkedList.cpp LinkedList.h)
+add_executable(CSC10901SP22CH08LINKEDLIST runner.cpp IntNode.cpp IntNode.h LinkedList.cpp LinkedList.h)

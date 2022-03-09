@@ -106,6 +106,8 @@ int LinkedList::LoadData(string filename) {
         IntNode* node1 = new IntNode(fileNum);
         this->push_back(node1);
         inFS >> fileNum;
+        // override insertion operator for the linked list class
+
     }
     if (!inFS.eof()) {
         cout << "Input failure before reaching end of file." << endl;
@@ -115,6 +117,40 @@ int LinkedList::LoadData(string filename) {
 
     // Done with file, so close it
     inFS.close();
+
+    return 0;
+}
+
+void LinkedList::multiplyBy2() {
+    IntNode* currObj = head;
+    while (currObj != nullptr) {
+        // currObj->PrintNodeData();
+        int v = currObj->GetDataVal();
+        currObj->setDataVal(v*2);
+        currObj = currObj->GetNext();
+    }
+}
+
+int LinkedList::SaveData(string filename) {
+    ofstream outFS; // Output file stream
+
+    // Open file
+    outFS.open(filename);
+
+    if (!outFS.is_open()) {
+        cout << "Could not open file " << filename << endl;
+        return 1;
+    }
+
+    // Write to file
+    IntNode* currObj = head;
+    while (currObj != nullptr) {
+        outFS << currObj->GetDataVal();
+        outFS << endl;
+        currObj = currObj->GetNext();
+    }
+    // Done with file, so close
+    outFS.close();
 
     return 0;
 }
@@ -132,3 +168,11 @@ int LinkedList::LoadData(string filename) {
 //    nodeLoc->nextNodePtr = tmpNext; // this -- node -- next
 //}
 
+ostream& operator<<(ostream& out, const LinkedList& list1) {
+    IntNode* currObj = list1.head;
+    while (currObj != nullptr) {
+        out << *currObj;
+        currObj = currObj->GetNext();
+    }
+    return out;
+}

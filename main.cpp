@@ -18,11 +18,16 @@ int main() {
 //    list1.push_front(nodeObj3);
 //    list1.print();
 
+
     list1.LoadData("num.txt");
     cout << "print linked list" << endl;
     list1.printList();
     list1.multiplyBy2();
     list1.SaveData("num1.txt");
+
+    cout << "override insertion operator" << endl;
+    cout << list1;
+
     return 0;
 }
 

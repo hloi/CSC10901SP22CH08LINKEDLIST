@@ -4,7 +4,9 @@
 
 #ifndef CSC10901SP22CH08LINKEDLIST_INTNODE_H
 #define CSC10901SP22CH08LINKEDLIST_INTNODE_H
+#include <iostream>
 
+using std::ostream;
 
 class IntNode {
 public:
@@ -16,11 +18,13 @@ public:
     void PrintNodeData();
     ~IntNode();
     bool operator==(const IntNode* other);
-
+    void setDataVal(int dataVal);
+    friend ostream& operator<<(ostream& out, const IntNode& node);
+    // friend ostream& operator>>(ostream& in, const IntNode& node);
+    // override the extaction operator for the node class.
 private:
     int dataVal;
     IntNode* nextNodePtr;
-
 
 };
 

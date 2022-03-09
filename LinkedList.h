@@ -24,8 +24,9 @@ public:
     void printList();
     int LoadData(string filename);
     void multiplyBy2();  // take each value in the linked list and multiply it by 2
-    int SaveData(string);  // save linked back into a file.
-
+    int SaveData(string filename);  // save linked back into a file.
+    friend ostream& operator<<(ostream& out, const LinkedList& node);
+    // friend ostream& operator>>(ostream& in, const LinkedList& node);
 private:
     IntNode* head;
     IntNode* tail;

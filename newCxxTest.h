@@ -106,6 +106,19 @@ public:
 
     }
 
+    void testLinkedListFile() {
+        LinkedList list1;
+        list1.LoadData("num.txt");
+        cout << "print linked list" << endl;
+        int numAr[] = {2, 6, 0, 44, 4, 8, 20};
+        int count = 0;
+        IntNode* currObj = list1.getHead();
+        while (currObj != nullptr) {
+            int v = currObj->GetDataVal();
+            TS_ASSERT_EQUALS(v, numAr[count++]);
+        }
+
+    }
 
 };
 

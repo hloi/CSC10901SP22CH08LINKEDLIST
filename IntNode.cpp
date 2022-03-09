@@ -45,3 +45,12 @@ void IntNode::insertAfter(IntNode *node) {
     SetNextNodePtr(node);
     node->SetNextNodePtr(tmp);
 }
+
+void IntNode::setDataVal(int dataVal) {
+    IntNode::dataVal = dataVal;
+}
+
+ostream& operator<<(ostream& out, const IntNode& node) {
+    out << node.dataVal << endl;
+    return out;
+}
