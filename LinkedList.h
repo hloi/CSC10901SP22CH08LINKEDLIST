@@ -18,6 +18,7 @@ public:
     IntNode *getTail() const;
     void insertAfter(IntNode* node, int pos);
     ~LinkedList();
+    void printList();
 
 private:
     IntNode* head;
