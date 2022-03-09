@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "LinkedList.h"
+#include <fstream>
 
 using namespace std;
 
@@ -71,6 +72,51 @@ void LinkedList::insertAfter(IntNode *node, int pos) {
     if (curPos == pos) {
         tmp->insertAfter(node);
     }
+}
+
+void LinkedList::printList() {
+//    // Print linked list
+    IntNode* currObj = head;
+    while (currObj != nullptr) {
+        currObj->PrintNodeData();
+        currObj = currObj->GetNext();
+    }
+}
+
+int LinkedList::LoadData(string filename) {
+    ifstream inFS;   // Input file stream
+    int fileNum;     // File data
+
+    // Open file
+    cout << "Opening file myfile.txt." << endl;
+    inFS.open(filename);
+
+    if (!inFS.is_open()) {
+        cout << "Could not open file " << filename << endl;
+        return 1;
+    }
+
+    // Print read numbers to output
+    cout << "Reading and printing numbers." << endl;
+
+    inFS >> fileNum;
+    int pos = 0;
+    while (!inFS.fail()) {
+        cout << "num: " << fileNum << endl;
+        IntNode* node1 = new IntNode(fileNum);
+        this->push_back(node1);
+        inFS >> fileNum;
+    }
+    if (!inFS.eof()) {
+        cout << "Input failure before reaching end of file." << endl;
+    }
+
+    cout << "Closing file myfile.txt." << endl;
+
+    // Done with file, so close it
+    inFS.close();
+
+    return 0;
 }
 
 

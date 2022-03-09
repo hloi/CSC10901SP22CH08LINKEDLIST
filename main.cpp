@@ -6,19 +6,23 @@ using namespace std;
 
 int main() {
     LinkedList list1;
-    IntNode* headObj = new IntNode(1); // Create IntNode objects
-    IntNode* nodeObj1 = new IntNode(2);
-    IntNode* nodeObj2 = new IntNode(3);
-    IntNode* nodeObj3 = new IntNode(4);
+//    IntNode* headObj = new IntNode(1); // Create IntNode objects
+//    IntNode* nodeObj1 = new IntNode(2);
+//    IntNode* nodeObj2 = new IntNode(3);
+//    IntNode* nodeObj3 = new IntNode(4);
+//
+//
+//    list1.push_front(headObj);
+//    list1.push_front(nodeObj1);
+//    list1.push_front(nodeObj2);
+//    list1.push_front(nodeObj3);
+//    list1.print();
 
-
-    list1.push_front(headObj);
-    list1.push_front(nodeObj1);
-    list1.push_front(nodeObj2);
-    list1.push_front(nodeObj3);
-    list1.print();
-
-
+    list1.LoadData("num.txt");
+    cout << "print linked list" << endl;
+    list1.printList();
+    list1.multiplyBy2();
+    list1.SaveData("num1.txt");
     return 0;
 }
 
